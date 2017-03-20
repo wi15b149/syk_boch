@@ -4,15 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{293959A4-28B8-4D07-9D64-B4181A0B9110}</ProjectGuid>
+    <ProjectGuid>{366C3646-9750-4BAB-A6C8-2278BC12F4BA}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MyFirstWcfProvider</RootNamespace>
-    <AssemblyName>MyFirstWcfProvider</AssemblyName>
+    <RootNamespace>MyFirstWcfServiceConsumer</RootNamespace>
+    <AssemblyName>MyFirstWcfServiceConsumer</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -36,8 +35,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -48,9 +45,6 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\ChatMessage.cs" />
-    <Compile Include="Services\ISimpleWcfServiceProvider.cs" />
-    <Compile Include="Services\SimpleWcfServiceProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
