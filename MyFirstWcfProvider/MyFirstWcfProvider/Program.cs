@@ -15,7 +15,7 @@ namespace MyFirstWcfProvider
             Console.WriteLine("Starting the service...");
             ServiceHost host = new ServiceHost(typeof(SimpleWcfServiceProvider));
             host.Open();
-            Console.WriteLine("Service started");
+            Console.WriteLine("Service started!");
 
             Console.ReadLine();
         }
