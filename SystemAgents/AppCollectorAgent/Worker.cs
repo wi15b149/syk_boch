@@ -15,9 +15,10 @@ namespace AppCollectorAgent
         private StringMessageInformer informer;
         private ISubmitable submit;
         private RunningAppsQueryServiceSoapClient client;
-        private List<string> appList;
+        private string[] appList;
+        private string temp;
 
-        internal List<string> AppList
+        internal string[] AppList
         {
             get { return appList; }
             set { appList = value; }
@@ -46,17 +47,18 @@ namespace AppCollectorAgent
         /// <param name="e"></param>
         void timer_Elapsed(object sender, ElapsedEventArgs e)
         {
-            //Inform Console
-            informer("");
-
-            appList = client.QueryApps();
-            //Inform Adapter via MSMQ
-            string temp = "";
+            appList = client.QueryApps().ToArray();
+            temp = "";
 
             foreach (var item in appList)
             {
                 temp = temp + item + "\n";
             }
+            
+
+            //Inform Console
+            informer("");            
+                     
             submit.Submit(new CoreMessage() { Source = "AppCollectorAgent", Date = DateTime.Now, Data = temp });
 
         }

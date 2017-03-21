@@ -28,6 +28,10 @@ namespace AppCollectorAgent
             informer = new StringMessageInformer(UpdateReceived);
 
             Console.WriteLine("Starting App Collector Agent");
+
+            //Zum Testen
+            //worker = new Worker(5000, informer, new MSMQCommunication());
+            
             worker = new Worker(60000, informer, new MSMQCommunication());
             worker.StartCollectingAppInfo();
         }
@@ -48,12 +52,12 @@ namespace AppCollectorAgent
         {
             Console.Clear();
             Console.WriteLine("Press Enter to stop the Worker!");
-            /*
+            
             foreach (var item in worker.AppList)
-            {
-                Console.WriteLine("\t" + item);
+            {              
+                    Console.WriteLine("\t" + item);                            
             }
-            */
+            
 
         }
     }
