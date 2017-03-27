@@ -19,6 +19,20 @@ namespace CoreService
         {
             this.informer = informer;
             this.serviceUrl = serviceUrl;
+
+            //Coding Dojo 3
+            Task.Factory.StartNew(StartMqReading);
+
+        }
+
+        private void StartMqReading()
+        {
+            MqHandler<CoreMessage> mq = new MqHandler<CoreMessage>(@".\private$\adapter2core");
+            while (true)
+            {
+                informer(mq.Receive());
+            }
+
         }
 
         /// <summary>

@@ -70,8 +70,7 @@ namespace AgentAdapterMqService
                 informer((CoreMessage)message.Body); //inform adapter logic
                 
             }
-        }
-
+        }       
 
     }
 }

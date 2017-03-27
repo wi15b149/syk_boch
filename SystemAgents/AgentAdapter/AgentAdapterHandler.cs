@@ -12,18 +12,22 @@ namespace AgentAdapter
     public class AgentAdapterHandler
     {
         private MessageTransmissionServiceClient client;
-
+        private MqHandler<CoreMessage> mq;
 
         public AgentAdapterHandler()
         {
             //service for connection to core components
             client = new MessageTransmissionServiceClient("TcpMessageTransmissionService"); //select TCP Service connection
             client.TransmitMessageCompleted += client_TransmitMessageCompleted; //async call
-       
+
+            //Coding Dojo 3
+            mq = new MqHandler<CoreMessage>(@".\private$\adapter2core");
+
             //Provide Services for Agents
             MessageInformer inf = new MessageInformer(NewMessageReceived);
             ServiceManager sm = new ServiceManager(inf);
             sm.Start();
+        
         }
 
       
@@ -32,8 +36,10 @@ namespace AgentAdapter
         {
             Console.WriteLine(String.Format("Received message from \"{0}\" at \"{1}\"\r\n\t{2}",
                  message.Source, message.Date.ToShortTimeString(), message.Data));
-            client.TransmitMessageAsync(message);
-         
+            //client.TransmitMessageAsync(message);
+
+            mq.Send(message);       
+            
         }
 
         void client_TransmitMessageCompleted(object sender, TransmitMessageCompletedEventArgs e)
