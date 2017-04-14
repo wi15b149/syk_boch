@@ -28,9 +28,7 @@ namespace AgentAdapter
             ServiceManager sm = new ServiceManager(inf);
             sm.Start();
         
-        }
-
-      
+        }     
 
         private void NewMessageReceived(CoreMessage message)
         {
