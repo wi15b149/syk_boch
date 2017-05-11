@@ -18,11 +18,21 @@ namespace Shared
             Ownskey = ownskey;
         }
 
+        public Person()
+        {
+
+        }
+
         public string Name { get; set; }
         public Guid ID { get; set; }
         public int Type { get; set; }
         public decimal Salary { get; set; }
         public bool Ownskey { get; set; }
+
+        public override string ToString()
+        {
+            return String.Format("{0},{1},{2},{3},{4}", Name,ID,Type, Salary, Ownskey);
+        }
 
     }
 }

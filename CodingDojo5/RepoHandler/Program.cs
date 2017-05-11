@@ -12,8 +12,8 @@ namespace RepoHandler
     {
         static void Main(string[] args)
         {
-            Repo repositoryA = new Repo();
-            Repo repositoryB = new Repo();
+            Repo repositoryA = new Repo("A");
+            Repo repositoryB = new Repo("B");
 
             repositoryA.AddPerson(new Person("Michael Boch1", Guid.NewGuid(), 1, 666, true));
             repositoryA.AddPerson(new Person("Michael Boch2", Guid.NewGuid(), 1, 777, false));
@@ -25,7 +25,9 @@ namespace RepoHandler
 
             while (true)
             {
-                
+                Console.WriteLine(repositoryA.ToString());
+                Console.WriteLine(repositoryB.ToString());
+                Console.ReadLine();
             }
         }
     }
