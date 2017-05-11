@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="45aedc4d-0b66-49fc-a105-ff76dc262aaa" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8733/ServiceLogic/" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="65f1b394-eacc-403d-8753-c169f5dfcbb5" SourceId="1" SourceUrl="http://localhost:8733/ServiceLogic/?disco" />
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="de20b2e2-eb54-490e-bc54-da59e42a2a55" SourceId="1" SourceUrl="http://localhost:8733/ServiceLogic/?xsd=xsd0" />
+    <MetadataFile FileName="ServiceLogic.wsdl" MetadataType="Wsdl" ID="a2031d23-2671-47d2-930e-dcd89afc4aeb" SourceId="1" SourceUrl="http://localhost:8733/ServiceLogic/?wsdl" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="819bb0e6-5468-4d01-ab8f-86ae0c065c1e" SourceId="1" SourceUrl="http://localhost:8733/ServiceLogic/?xsd=xsd1" />
+    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="1581df0d-7b18-4fed-b223-0e1e14b97034" SourceId="1" SourceUrl="http://localhost:8733/ServiceLogic/?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
