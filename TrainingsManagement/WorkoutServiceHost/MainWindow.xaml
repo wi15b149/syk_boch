@@ -1,0 +1,62 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WorkoutServiceHost"
+        xmlns:ViewModel="clr-namespace:WorkoutServiceHost.ViewModel" xmlns:Converter="clr-namespace:WorkoutServiceHost.Converter" x:Class="WorkoutServiceHost.MainWindow"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Window.Resources>
+        <Converter:Bool2Brush x:Key="Bool2Brush"/>
+    </Window.Resources>
+    <Window.DataContext>
+        <ViewModel:MainViewModel/>
+    </Window.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Orientation="Horizontal">
+            <Ellipse Margin="10" VerticalAlignment="Center" Height="15" Width="15" Fill="{Binding IsServiceRunning, Converter={StaticResource Bool2Brush}}"/>
+            <Label VerticalAlignment="Center" Margin="5" Content="Log" />
+        </StackPanel>
+        <Label Content="Add new workout" Grid.Column="1" VerticalAlignment="Center" Margin="10" HorizontalAlignment="Center" Foreground="#FFF01616" FontSize="16" />
+        <ListBox Grid.Row="1" Margin="10" ItemsSource="{Binding LogList}" />
+        <Grid Grid.Column="1" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40*"/>
+                <RowDefinition Height="40*"/>
+                <RowDefinition Height="40*"/>
+                <RowDefinition Height="40*"/>
+                <RowDefinition Height="40*"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Content="Description" VerticalAlignment="Center" />
+            <TextBox Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10" Width="150" Height="23" Text="{Binding Description}"/>
+
+            <Label Grid.Row="1" Content="Duration" VerticalAlignment="Center" />
+            <TextBox Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10" Width="150" Height="23" Text="{Binding Duration}"/>
+
+            <Label Grid.Row="2" Content="Level" VerticalAlignment="Center" />
+            <TextBox Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10" Width="150" Height="23" Text="{Binding Level}"/>
+
+            <Label Grid.Row="3" Content="Exercises" VerticalAlignment="Center" />
+            <TextBox Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10" Width="150" Height="23" Text="{Binding Exercises}"/>
+
+            <Button Content="Save" HorizontalAlignment="Right" Margin="10" Grid.Row="4" VerticalAlignment="Center" Width="80" Grid.ColumnSpan="2" Command="{Binding AddBtnClickedCmd}"/>
+
+
+        </Grid>
+        <!--<DataGrid Grid.Column="1" Margin="10" Grid.Row="1"/>-->
+
+    </Grid>
+</Window>
